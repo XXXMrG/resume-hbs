@@ -8,8 +8,8 @@ import {resolve, dirname} from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = resolve(dirname(__filename), '../');
 
-const enGist = 'https://gist.githubusercontent.com/YOYZHANG/95b887fffe3854aed019b0797e8be605/raw/resume-en.json'
-const cnGist = 'https://gist.githubusercontent.com/YOYZHANG/2c156b90a775ea4c72bd66817962e379/raw/resume-cn.json'
+const enGist = 'https://gist.githubusercontent.com/XXXMrG/5df4ed9a0cdeae9c09298f1b838a5b16/raw/resume-cn.json'
+const cnGist = 'https://gist.githubusercontent.com/XXXMrG/5df4ed9a0cdeae9c09298f1b838a5b16/raw/resume-cn.json'
 async function buildResumeHTML(gist: string, output: string, locale: string | undefined): Promise<string> {
   await fs.remove(__dirname + '/dist')
   await fs.ensureDir(__dirname + '/dist')
