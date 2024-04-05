@@ -52,15 +52,15 @@ export function render(resume: Record<string, unknown>, locale?: string | undefi
 
   handlebars.registerHelper('getPdfLinks', () => {
     const link = locale === 'cn'
-      ? 'https://zxq-resume.netlify.app/resume-cn.pdf'
-      : 'https://zxq-resume.netlify.app/resume.pdf';
+      ? 'https://keith-resume.netlify.app/resume-cn.pdf'
+      : 'https://keith-resume.netlify.app/resume.pdf';
     
     return link;
   })
   handlebars.registerHelper('getOnlineLinks', () => {
     const link = locale === 'cn'
-      ? 'https://zxq-resume.netlify.app/resume-cn.html'
-      : 'https://zxq-resume.netlify.app';
+      ? 'https://keith-resume.netlify.app/resume-cn.pdf'
+      : 'https://keith-resume.netlify.app/resume.pdf';
     
     return link;
   })
