@@ -9,7 +9,7 @@ const __dirname = resolve(dirname(__filename), '../');
 async function renderScheme() {
   try {
     const schema = fs.readFileSync(__dirname + '/sample.resume.json', 'utf8')
-    return (await import('../src/index.ts')).render(JSON.parse(schema))
+    return (await import('../src/index.ts')).render(JSON.parse(schema), 'cn')
   }
   catch(e) {
     console.error(e)

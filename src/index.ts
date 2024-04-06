@@ -38,7 +38,7 @@ export function render(resume: Record<string, unknown>, locale?: string | undefi
       case 'work_experience':
         return isCn ? '工作经历' : 'WORK EXPERIENCE';
       case 'projects':
-        return isCn ? '项目经历' : 'PROJECTS';
+        return isCn ? '开源项目' : 'PROJECTS';
       case 'stacks':
         return isCn ? '技术栈' : 'STACKS';
       case 'education':
