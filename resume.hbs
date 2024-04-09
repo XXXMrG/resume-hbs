@@ -124,9 +124,13 @@
                                 <small>{{summary}}</small>
                                 <ul class='highlight'>
                                   {{#each keypoints}}
-                                      <li> {{.}} </li>
+                                      <li> {{autoHighlight .}} </li>
                                       {{/each}}
                                 </ul>
+                                {{#if @last}}
+                                    {{else}}
+                                    <div style="background-color: #4A90E2;height: 1px;margin: auto;"></div>
+                                {{/if}}
                               {{/each}}
                             </ul>
                           </div> 
