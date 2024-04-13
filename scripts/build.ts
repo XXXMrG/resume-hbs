@@ -63,7 +63,7 @@ async function build(gist: string, output: string, locale?: string) {
 }
 
 
-build(enGist, 'resume').catch(e => {
+build(enGist, 'resume', 'cn').catch(e => {
   console.error(chalk.red(e))
   process.exit(1)
 })
