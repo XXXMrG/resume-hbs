@@ -68,6 +68,21 @@ body {
   margin-bottom: 0.2rem;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 520px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.work-title {
+  @media (max-width: 520px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.work-pos-desc {
+  @media (min-width: 520px) {
+    margin-left: 0.3em;
+  }
 }
 .hightlight-container {
   opacity: 0.8;
@@ -114,6 +129,7 @@ body {
     display: flex;
     gap: 10px;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .name-and-profession {
