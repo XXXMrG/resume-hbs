@@ -8,6 +8,8 @@
 
 .highlight {
   margin-top: 1rem;
+  list-style-type: disc;
+  padding-left: 0.5rem;
 }
 .clear-margin {
   margin: 0;
