@@ -11,8 +11,6 @@ const __dirname = resolve(dirname(__filename), '../');
 const enGist = 'https://gist.githubusercontent.com/XXXMrG/5df4ed9a0cdeae9c09298f1b838a5b16/raw/resume-cn.json'
 const cnGist = 'https://gist.githubusercontent.com/XXXMrG/5df4ed9a0cdeae9c09298f1b838a5b16/raw/resume-cn.json'
 async function buildResumeHTML(gist: string, output: string, locale: string | undefined): Promise<string> {
-  await fs.remove(__dirname + '/dist')
-  await fs.ensureDir(__dirname + '/dist')
   console.log(chalk.bgBlue('downloading resume from gist...'))
   
   const {data} = await axios.get(gist)
@@ -62,13 +60,34 @@ async function build(gist: string, output: string, locale?: string) {
   await convertToPDF(html, output)
 }
 
+async function copyFavicon() {
+    const pngPath = __dirname + '/assets/favicon.png';
+    if (fs.existsSync(pngPath)) {
+        await fs.cp(__dirname + '/assets/favicon.png', __dirname + '/dist/favicon.png', (e) => {
+            if (e) {
+                console.error(chalk.red(e))
+                process.exit(1)
+            }
+        });
+        console.log(chalk.bgBlue('using favicon...'))
+    }
+}
 
-build(enGist, 'resume', 'cn').catch(e => {
-  console.error(chalk.red(e))
-  process.exit(1)
-})
+async function start() {
+    await fs.remove(__dirname + '/dist')
+    await fs.ensureDir(__dirname + '/dist')
 
-build(cnGist, 'resume-cn', 'cn').catch(e => {
-  console.error(chalk.red(e))
-  process.exit(1)
-})
+    build(enGist, 'resume', 'cn').catch(e => {
+        console.error(chalk.red(e))
+        process.exit(1)
+      })
+
+    build(cnGist, 'resume-cn', 'cn').catch(e => {
+        console.error(chalk.red(e))
+        process.exit(1)
+    })
+
+    await copyFavicon()
+}
+
+start()
